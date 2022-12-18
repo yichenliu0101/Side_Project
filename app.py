@@ -1,7 +1,7 @@
 #initialize the database connect
 import pymongo
-client = pymongo.MongoClient("mongodb+srv://root:root000@mycluster.umcgtpg.mongodb.net/?retryWrites=true&w=majority")
-db = client.member_system
+client = pymongo.MongoClient("")#copy&paste the code with MongoDB connection with application
+db = client.db#db name
 print("Connect is success")
 
 #initialize Flask server
