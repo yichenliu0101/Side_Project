@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Member System</title>
+</head>
+<body>
+    <h2>Member System</h2>
+    <div>Welcome to our website</div>
+    <h3>Sign up for Member</h3>
+    <form action="/signup" method="POST">
+        Nickname <input type="text" name="nickname" /> <br/>
+        Email <input type="text" name="email" /> <br/>
+        Password <input type="password" name="password" /> <br/>
+        <button>Sign up</button>
+    </form>
+    <h3>Sign in for Member</h3>
+    <form action="/signin" method="POST">
+        Email <input type="text" name="email" /> <br/>
+        Password <input type="password" name="password" /> <br/>
+        <button>Sign in</button>
+    </form>
+    <h3>Forget password</h3>
+    <form action="/reset" method="POST">
+        Email <input type="text" name="email" /> <br/>
+        New password <input type="password" name="resetpass1"> <br/>
+        Rewrite new password <input type="password" name="resetpass2"> <br/>
+        <button>reset</button>
+    </form>
+</body>
+</html>
