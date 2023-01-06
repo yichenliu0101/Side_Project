@@ -1,6 +1,7 @@
 #initialize the database connect
 import pymongo
-client = pymongo.MongoClient("")#copy&paste the code with MongoDB connection with application
+
+client = pymongo.MongoClient("")
 db = client.db#db name
 print("Connect is success")
 
@@ -95,4 +96,27 @@ def edit():
         }
     })
     return render_template("index.html")
+
+@app.route("/delete", methods=["POST"])
+def delete():
+    email = request.form["email"]
+    delpass1 = request.form["delpass1"]
+    delpass2 = request.form["delpass2"]
+    if delpass1 != delpass2:
+        redirect("error?msg=the input of passwords are not the same") 
+    collection = db.user
+    result = collection.find_one({
+        "$and":[
+            {"email":email},
+            {"password":delpass1}
+        ]
+    })
+    if result ==None:
+        return redirect("/error?msg=the email or password is wrong!")
+    
+    collection.delete_one({
+        "email":email
+    })
+    
+    return redirect("/")
 app.run(port = 5000)
